@@ -3,6 +3,9 @@ import { initialValidationRun } from "./index";
 
 
 
+const errorMessages = {
+    notEmail: `Please put in a valid email`
+}
 
 
 
