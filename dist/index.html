@@ -3,8 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Sweepstakes Form</title>
     <script defer src="main.js"></script>
   </head>
-  <body></body>
+  <body>
+
+    <div class="form-container">
+
+      <form action="push" id="fillout-form">
+
+        <div class="email-container">
+          <label for="user-email">Email:</label>
+          <input type="email" id="user-email" name="user-email" required>
+        </div>
+        <span class="email-error"></span>
+
+        <div class="country-container">
+          <label for="user-country">Country of Residence:</label>
+          <select name="user-country" id="user-country">
+            <option value="us">United Staes</option>
+            <option value="united Kingdom">United Kingdom</option>
+            <option value="canada">Canada</option>
+            <option value="mexico">Mexico</option>
+            <option value="spain">Spain</option>
+            <option value="poland">Poland</option>
+          </select>
+        </div>
+        <span class="country-error"></span>
+
+        <div class="zipcode-container">
+          <label for="user-zip">Zipcode:</label>
+          <!-- have to do regular expression here -->
+          <input type="number" id="user-zip" name="user-zip" maxlength="5" minlength="5" required>
+        </div>
+        <span class="zipcode-error"></span>
+
+        <div class="passwords-container">
+          <label for="password1">User Password:</label>
+          <input type="text" id="pasword1" name="password1" minlength="9" required>
+          <span class="password1-error"></span>
+
+            <!-- need to figure out how to do match check -->
+            <label for="password2">Confirm Password:</label>
+            <input type="text" id="pasword2" name="password2" required>
+          <span class="password2-error"></span>
+        </div>
+        
+
+      </form>
+
+    </div>
+
+  </body>
 </html>
