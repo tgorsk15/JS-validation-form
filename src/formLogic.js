@@ -1,4 +1,4 @@
-
+import { initialMessageRun  } from "./index";
 
 
 
@@ -12,11 +12,17 @@ export const formValidation = function () {
     const userPassword1 = document.getElementById('password1');
     const userPassword2 = document.getElementById('password2');
 
-    // reference to error spans
-    const emailError = document.querySelector('.email-error');
-    const countryError = document.querySelector('.country-error');
-    const zipcodeError = document.querySelector('.zipcode-error');
-    const password1Error = document.querySelector('.password1-error');
-    const password2Error = document.querySelector('.password2-error');
+    // submit button reference
+    const submitBUtton = document.querySelector('.submit-button');
+
+    // console.log(emailError);
+    // console.log(userPassword2);
+    // console.log(userEmail);
+    // console.log(userPassword1);
+
+
+    userEmail.addEventListener('blur', () => {
+        initialMessageRun.checkUserEmail(userEmail);
+    })
 
 }
