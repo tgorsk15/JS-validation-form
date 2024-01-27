@@ -6,7 +6,9 @@ import { initialValidationRun } from "./index";
 const errorMessages = {
     notEmail: `Please enter a valid email address`,
 
-    noCountry: 'Please select your country of residence'
+    noCountry: 'Please select your country of residence',
+
+    incorrectZip: 'Zipcode must be in the format of XXXXXX'
 
 }
 
@@ -38,7 +40,7 @@ export const messageController = function () {
 
     function checkUserCountry (userCountry) {
         const selectedOption = userCountry.value;
-        console.log(selectedOption);
+        
         console.log('get out of ma country')
         if (selectedOption === "blank") {
             countryError.textContent = errorMessages.noCountry;
@@ -49,8 +51,18 @@ export const messageController = function () {
     }
 
 
-    function checkUserZip () {
-
+    function checkUserZip (userZip) {
+        const zipRegEx = /^[0-9]{5}$/;
+        const zipString = userZip.value.toString();
+        console.log(typeof userZip.value);
+        console.log(zipRegEx.test(userZip.value));
+        
+        if (zipRegEx.test(userZip.value)) {
+            console.log('correct bro')
+            zipcodeError.textContent = '';
+        } else {
+            zipcodeError.textContent = errorMessages.incorrectZip;
+        }
     }
 
 

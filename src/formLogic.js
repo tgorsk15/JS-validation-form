@@ -30,4 +30,9 @@ export const formValidation = function () {
         initialMessageRun.checkUserCountry(userCountry);
     })
 
+
+    userZip.addEventListener('blur', () => {
+        initialMessageRun.checkUserZip(userZip);
+    })
+
 }
