@@ -19,6 +19,6 @@ body {
     border: 2px solid black;
 }
 
-label {
+label, input {
     display: block;
 }

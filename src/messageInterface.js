@@ -4,11 +4,15 @@ import { initialValidationRun } from "./index";
 
 
 const errorMessages = {
+    emptyField: 'This field is required',
+
     notEmail: `Please enter a valid email address`,
 
     noCountry: 'Please select your country of residence',
 
-    incorrectZip: 'Zipcode must be in the format of XXXXXX'
+    incorrectZip: 'Zipcode must be in the format of XXXXXX',
+
+    incorrectPassword: 'Password must be at least 8 characters, use at least 1 letter, 1 special character, and 1 digit'
 
 }
 
@@ -53,8 +57,7 @@ export const messageController = function () {
 
     function checkUserZip (userZip) {
         const zipRegEx = /^[0-9]{5}$/;
-        const zipString = userZip.value.toString();
-        console.log(typeof userZip.value);
+        
         console.log(zipRegEx.test(userZip.value));
         
         if (zipRegEx.test(userZip.value)) {
@@ -66,8 +69,18 @@ export const messageController = function () {
     }
 
 
-    function checkPassword1 () {
+    function checkPassword1 (userPassword1) {
+        const passwordRegEx = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!#$%&?*]).{8,}$/
 
+        console.log(userPassword1.value);
+        console.log(passwordRegEx.test(userPassword1.value));
+
+        if (passwordRegEx.test(userPassword1.value)) {
+            console.log('you got it bro');
+            password1Error.textContent = '';
+        } else {
+            password1Error.textContent = errorMessages.incorrectPassword;
+        }
     }
 
 

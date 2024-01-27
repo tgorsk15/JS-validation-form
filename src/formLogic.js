@@ -35,4 +35,9 @@ export const formValidation = function () {
         initialMessageRun.checkUserZip(userZip);
     })
 
+
+    userPassword1.addEventListener('blur', () => {
+        initialMessageRun.checkPassword1(userPassword1);
+    })
+
 }
