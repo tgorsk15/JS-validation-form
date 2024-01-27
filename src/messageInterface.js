@@ -12,7 +12,9 @@ const errorMessages = {
 
     incorrectZip: 'Zipcode must be in the format of XXXXXX',
 
-    incorrectPassword: 'Password must be at least 8 characters, use at least 1 letter, 1 special character, and 1 digit'
+    incorrectPassword: 'Password must be at least 8 characters, use at least 1 letter, 1 special character, and 1 digit',
+
+    notMatchingPassword: 'Confirmation password does not match User Password'
 
 }
 
@@ -84,8 +86,15 @@ export const messageController = function () {
     }
 
 
-    function checkMatchingPasswords () {
+    function checkMatchingPasswords (userPassword1, userPassword2) {
+        console.log('checking if theres a match');
 
+        if (userPassword2.value === userPassword1.value) {
+            console.log('its a match bro')
+            password2Error.textContent = '';
+        } else {
+            password2Error.textContent = errorMessages.notMatchingPassword;
+        }
     }
 
     return  {checkUserEmail,

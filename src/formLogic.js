@@ -40,4 +40,8 @@ export const formValidation = function () {
         initialMessageRun.checkPassword1(userPassword1);
     })
 
+    userPassword2.addEventListener('blur', () => {
+        initialMessageRun.checkMatchingPasswords(userPassword1, userPassword2);
+    })
+
 }
