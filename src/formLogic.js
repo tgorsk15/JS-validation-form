@@ -23,6 +23,11 @@ export const formValidation = function () {
 
     userEmail.addEventListener('blur', () => {
         initialMessageRun.checkUserEmail(userEmail);
+    });
+
+
+    userCountry.addEventListener('blur', () => {
+        initialMessageRun.checkUserCountry(userCountry);
     })
 
 }

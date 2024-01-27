@@ -4,7 +4,10 @@ import { initialValidationRun } from "./index";
 
 
 const errorMessages = {
-    notEmail: `Please put in a valid email`
+    notEmail: `Please enter a valid email address`,
+
+    noCountry: 'Please select your country of residence'
+
 }
 
 
@@ -21,19 +24,27 @@ export const messageController = function () {
 
 
     function checkUserEmail (userEmail) {
-        console.log(`I have blurred ${userEmail}`);
+        // console.log(`I have blurred ${userEmail}`);
 
         if (userEmail.validity.typeMismatch) {
-            console.log('this is wrong')
-            emailError.textContent = 'no'
+            console.log('this is wrong');
+            emailError.textContent = errorMessages.notEmail;
         } else if (!userEmail.validity.typeMismatch) {
-            emailError.textContent = 'yes';
+            emailError.textContent = '';
         }
 
     }
 
 
-    function checkUserCountry () {
+    function checkUserCountry (userCountry) {
+        const selectedOption = userCountry.value;
+        console.log(selectedOption);
+        console.log('get out of ma country')
+        if (selectedOption === "blank") {
+            countryError.textContent = errorMessages.noCountry;
+        } else {
+            countryError.textContent = ''
+        }
 
     }
 
