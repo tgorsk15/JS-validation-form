@@ -37,8 +37,10 @@ export const messageController = function () {
         if (userEmail.validity.typeMismatch) {
             console.log('this is wrong');
             emailError.textContent = errorMessages.notEmail;
+            userEmail.style.border = '2px solid rgb(179, 105, 105)';
         } else if (!userEmail.validity.typeMismatch) {
             emailError.textContent = '';
+            userEmail.style.border = '2px solid black';
         }
 
     }
@@ -50,8 +52,10 @@ export const messageController = function () {
         console.log('get out of ma country')
         if (selectedOption === "blank") {
             countryError.textContent = errorMessages.noCountry;
+            userCountry.style.border = '2px solid rgb(179, 105, 105)';
         } else {
-            countryError.textContent = ''
+            countryError.textContent = '';
+            userEmail.style.border = '2px solid black';
         }
 
     }
@@ -65,23 +69,10 @@ export const messageController = function () {
         if (zipRegEx.test(userZip.value)) {
             console.log('correct bro')
             zipcodeError.textContent = '';
+            userZip.style.border = '2px solid black';
         } else {
             zipcodeError.textContent = errorMessages.incorrectZip;
-        }
-    }
-
-
-    function checkPassword1 (userPassword1) {
-        const passwordRegEx = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!#$%&?*]).{8,}$/
-
-        console.log(userPassword1.value);
-        console.log(passwordRegEx.test(userPassword1.value));
-
-        if (passwordRegEx.test(userPassword1.value)) {
-            console.log('you got it bro');
-            password1Error.textContent = '';
-        } else {
-            password1Error.textContent = errorMessages.incorrectPassword;
+            userZip.style.border = '2px solid rgb(179, 105, 105)';
         }
     }
 
@@ -92,10 +83,34 @@ export const messageController = function () {
         if (userPassword2.value === userPassword1.value) {
             console.log('its a match bro')
             password2Error.textContent = '';
+            userPassword2.style.border = '2px solid black';
         } else {
             password2Error.textContent = errorMessages.notMatchingPassword;
+            userPassword2.style.border = '2px solid rgb(179, 105, 105)';
         }
     }
+
+
+
+    function checkPassword1 (userPassword1, userPassword2) {
+        const passwordRegEx = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!#$%&?*]).{8,}$/
+
+        console.log(userPassword1.value);
+        console.log(passwordRegEx.test(userPassword1.value));
+
+        if (passwordRegEx.test(userPassword1.value)) {
+            console.log('you got it bro');
+            password1Error.textContent = '';
+            userPassword1.style.border = '2px solid black';
+        } else {
+            password1Error.textContent = errorMessages.incorrectPassword;
+            userPassword1.style.border = '2px solid rgb(179, 105, 105)';
+        }
+
+        checkMatchingPasswords(userPassword1, userPassword2);
+    }
+
+    
 
     return  {checkUserEmail,
         checkUserCountry,

@@ -15,11 +15,6 @@ export const formValidation = function () {
     // submit button reference
     const submitBUtton = document.querySelector('.submit-button');
 
-    // console.log(emailError);
-    // console.log(userPassword2);
-    // console.log(userEmail);
-    // console.log(userPassword1);
-
 
     userEmail.addEventListener('blur', () => {
         initialMessageRun.checkUserEmail(userEmail);
@@ -28,20 +23,25 @@ export const formValidation = function () {
 
     userCountry.addEventListener('blur', () => {
         initialMessageRun.checkUserCountry(userCountry);
-    })
+    });
 
 
     userZip.addEventListener('blur', () => {
         initialMessageRun.checkUserZip(userZip);
-    })
+    });
 
 
     userPassword1.addEventListener('blur', () => {
-        initialMessageRun.checkPassword1(userPassword1);
-    })
+        initialMessageRun.checkPassword1(userPassword1, userPassword2);
+    });
 
     userPassword2.addEventListener('blur', () => {
         initialMessageRun.checkMatchingPasswords(userPassword1, userPassword2);
+    });
+
+
+    submitBUtton.addEventListener('submit', () => {
+        console.log('subbb');
     })
 
 }

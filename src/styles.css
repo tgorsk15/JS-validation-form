@@ -11,6 +11,7 @@ body {
 
 .form-container {
     position: absolute;
+    background-color: white;
     /* display: flex;
     justify-content: center;
     align-items: center; */
@@ -22,3 +23,19 @@ body {
 label, input {
     display: block;
 }
+
+input:not(:focus):not(:placeholder-shown):invalid {
+    background-color: white;
+    /* border: 2px solid black; */
+}
+
+input:invalid {
+    /* border: 2px solid rgb(179, 105, 105); */
+    /* background-color: rgb(179, 105, 105); */
+}
+
+input:valid {
+    border: 2px solid rgb(68, 171, 68);
+}
+
+/* input:not(:focus):not(:placeholder-shown):valid */
