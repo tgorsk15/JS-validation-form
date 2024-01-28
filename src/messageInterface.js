@@ -18,6 +18,7 @@ const errorMessages = {
 
 }
 
+const errorList = [];
 
 
 // eslint-disable-next-line import/prefer-default-export
@@ -25,14 +26,22 @@ export const messageController = function () {
 
     // reference to error spans
     const emailError = document.querySelector('.email-error');
+    errorList.push(emailError);
+
     const countryError = document.querySelector('.country-error');
+    errorList.push(countryError);
+
     const zipcodeError = document.querySelector('.zipcode-error');
+    errorList.push(zipcodeError);
+
     const password1Error = document.querySelector('.password1-error');
+    errorList.push(password1Error);
+
     const password2Error = document.querySelector('.password2-error');
+    errorList.push(password2Error);
 
 
     function checkUserEmail (userEmail) {
-        // console.log(`I have blurred ${userEmail}`);
 
         if (userEmail.validity.typeMismatch) {
             console.log('this is wrong');
@@ -131,12 +140,27 @@ export const messageController = function () {
         checkMatchingPasswords(userPassword1, userPassword2);
     }
 
+    function submitCheck(submitButton) {
+        console.log(errorList);
+        errorList.forEach(error => {
+            console.log(error.textContent);
+            if (error.textContent !== '') {
+                return alert('Please resolve all marked errors on the form in order to submit')
+                
+            }
+
+        });
+        initialValidationRun.resetForm();
+        // alert('Form submitted');
+    }
+
 
 
     return  {checkUserEmail,
         checkUserCountry,
         checkUserZip,
         checkPassword1,
-        checkMatchingPasswords}
+        checkMatchingPasswords,
+        submitCheck}
 
 }

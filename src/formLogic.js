@@ -13,7 +13,12 @@ export const formValidation = function () {
     const userPassword2 = document.getElementById('password2');
 
     // submit button reference
-    const submitBUtton = document.querySelector('.submit-button');
+    const submitButton = document.querySelector('.submit-button');
+
+
+    function resetForm() {
+        console.log('form has been reset');
+    }
 
 
     userEmail.addEventListener('blur', () => {
@@ -40,8 +45,13 @@ export const formValidation = function () {
     });
 
 
-    submitBUtton.addEventListener('submit', () => {
+    submitButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        initialMessageRun.submitCheck(submitButton);
         console.log('subbb');
+
+
     })
 
+    return { resetForm }
 }
