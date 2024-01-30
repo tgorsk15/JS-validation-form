@@ -4,9 +4,8 @@ html {
 }
 
 body {
-    /* background-color: rgb(90, 141, 90); */
     background-image: url('./sky-background.jpg');
-    background-size: 1250px;
+    background-size: contain;
     min-height: 100%;
     position: relative;
 }
