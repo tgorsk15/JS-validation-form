@@ -140,18 +140,30 @@ export const messageController = function () {
         checkMatchingPasswords(userPassword1, userPassword2);
     }
 
-    function submitCheck(submitButton) {
-        console.log(errorList);
-        errorList.forEach(error => {
+    function submitCheck() {
+        let hasError = false;
+
+        errorList.some(error => {
             console.log(error.textContent);
             if (error.textContent !== '') {
-                return alert('Please resolve all marked errors on the form in order to submit')
+                hasError = true
+                alert('Please resolve all marked errors on the form in order to submit')
+                return true
                 
             }
 
         });
-        initialValidationRun.resetForm();
-        // alert('Form submitted');
+
+        if (!hasError) {
+            console.log('no errors !')
+            alert('Step one cleared');
+            initialValidationRun.checkBlankErrors();
+
+            return true
+        };
+
+        
+        
     }
 
 
