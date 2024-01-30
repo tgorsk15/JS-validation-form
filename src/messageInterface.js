@@ -1,4 +1,4 @@
-import { formValidation } from "./formLogic";
+
 import { initialValidationRun } from "./index";
 
 
@@ -156,7 +156,6 @@ export const messageController = function () {
 
         if (!hasError) {
             console.log('no errors !')
-            alert('Step one cleared');
             initialValidationRun.checkBlankErrors();
 
             return true

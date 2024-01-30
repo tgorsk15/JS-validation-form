@@ -17,8 +17,9 @@
         <div class="email-container">
           <label for="user-email">Email:</label>
           <input type="email" id="user-email" name="user-email" required>
+          <span class="email-error"></span>
         </div>
-        <span class="email-error"></span>
+        
 
         <div class="country-container">
           <label for="user-country">Country of Residence:</label>
@@ -31,15 +32,16 @@
             <option value="spain">Spain</option>
             <option value="poland">Poland</option>
           </select>
+          <span class="country-error"></span>
         </div>
-        <span class="country-error"></span>
+        
 
         <div class="zipcode-container">
           <label for="user-zip">Zipcode:</label>
-          <!-- have to do regular expression here -->
           <input type="text" id="user-zip" name="user-zip" maxlength="5" minlength="5" required>
+          <span class="zipcode-error"></span>
         </div>
-        <span class="zipcode-error"></span>
+        
 
         <div class="passwords-container">
 
@@ -48,7 +50,7 @@
           <span class="password1-error"></span>
 
             <!-- need to figure out how to do match check -->
-            <label for="password2">Confirm Password:</label>
+            <label for="password2" id="password2-label">Confirm Password:</label>
             <input type="text" id="password2" name="password2" required>
           <span class="password2-error"></span>
 

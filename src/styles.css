@@ -4,29 +4,88 @@ html {
 }
 
 body {
-    background-color: rgb(90, 141, 90);
+    /* background-color: rgb(90, 141, 90); */
+    background-image: sky;
     min-height: 100%;
     position: relative;
 }
 
 .form-container {
+    min-height: 660px;
+    max-width: 490px;
+    padding: 0px 29px;
+    padding-top: 20px;
     position: absolute;
     background-color: white;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    left: 34%;
-    top: 30%;
+    display: grid;
+    grid-template-rows: 1fr 4.5fr;
+    left: 37%;
+    top: 8%;
     border: 2px solid black;
+    box-shadow: 0px 3px 7px 0px black;
 }
 
-label, input {
+.form-title {
+    text-align: center;
+    grid-row: 1;
+}
+
+#fillout-form {
+    /* justify-self: center; */
+}
+
+label, input, select {
     display: block;
+    
+}
+
+label {
+    margin-top: 33px;
+    font-size: 22px;
+}
+
+input, select {
+    font-size: 19px;
+    width: 300px;
 }
 
 input:not(:focus):not(:placeholder-shown):invalid {
     background-color: white;
     /* border: 2px solid black; */
+}
+
+.email-container, .country-container, 
+.zipcode-container, .passwords-container {
+    position: relative;
+}
+
+.email-error, .country-error, .zipcode-error {
+    color: rgb(156, 73, 73);
+    position: absolute;
+    bottom: -20px;
+}
+
+.password1-error {
+    color: rgb(156, 73, 73);
+    position: absolute;
+    top: 54px;
+}
+
+.password2-error {
+    color: rgb(156, 73, 73);
+    position: absolute;
+    bottom: -22px;
+}
+
+#password2-label {
+    margin-top: 50px;
+}
+
+.submit-button {
+    margin-top: 46px;
+    height: 25px;
+    font-size: 18px;
+    margin-left: 15px;
 }
 
 

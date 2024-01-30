@@ -34,6 +34,7 @@ export const formValidation = function () {
 
 
 
+    // eslint-disable-next-line consistent-return
     function checkBlankErrors() {
         let hasBlank = false
 
@@ -59,7 +60,6 @@ export const formValidation = function () {
         }
         console.log('end of f reached');
 
-        // console.log(fieldsList.every(checkBlanks));
     }
 
 
