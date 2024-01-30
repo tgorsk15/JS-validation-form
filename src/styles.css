@@ -5,7 +5,7 @@ html {
 
 body {
     background-image: url('./sky-background.jpg');
-    background-size: contain;
+    background-size: 1850px 1100px;
     min-height: 100%;
     position: relative;
 }
